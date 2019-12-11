@@ -1,0 +1,23 @@
+The reason for using the vector container rather than any other available in the 
+STL.
+
+The reason for using the vector containers is the ability of handling. The ability
+is doing its own destruction the project when the program gets end of the scope.
+
+==================================================================================
+Why there is no need to deallocate the dynamically allocated memory in your own 
+code.
+
+The vector containers is able to dealocate memory when the program gets ends of the
+scope.
+
+==================================================================================
+How the range-based for simplifies coding in this case.
+
+The range-based for simplifies coding in this case is based on the current element
+of the contaner is accessed by the references in the loop.
+
+====================================================================================
+ 
+
+
