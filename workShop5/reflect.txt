@@ -1,0 +1,82 @@
+1_The difference between the implementations of a functor and a lambda expression.
+
+The functors are not in the required place to use them. Firstly,you must find and 
+read the functor out of context to the place it was being used in.
+Secoundly, the other problem was that functor required some wiring to get 
+parameters into the functor object. 
+
+Lambda fix both of them that it is explained above. But I would use functors if 
+the function is repeated in multiple places.
+
+===================================================================================
+2_A list of the exceptions that you have reported and the cases where you 
+terminated execution normally.
+
+I explain this question with this solution into the workshop5 in w5.cpp
+
+
+
+Start of handeling for the two throw in file of KVList.h:
+
+	try {
+
+
+
+		// check for command line errors
+		if (argc != 3) exit(1);
+
+		// set for fixed, 2-decimal point output
+		std::cout << std::fixed << std::setprecision(2);
+
+		// process price list file
+		KVList<KVPair<std::string, float>> priceList = createList<
+			KVList<KVPair<std::string, float>>,
+			KVPair<std::string, float>,
+			std::string,
+			float>
+			(argv[1]);
+		std::cout << "\nPrice List with G+S Taxes Included\n==================================\n";
+		std::cout << "Description:      Price Price+Tax\n";
+		priceList.display(std::cout, Taxable(HST));
+
+
+
+
+		//Now, List Of Grades is following:
+
+
+		//Name: Amir Aminzadeh
+		//Student number: 126554187
+		//Student email: aaminzadeh2@myseneca.ca
+		//Section: SEE
+
+
+
+		KVList<KVPair<int, float>> listOfGrade = createList<
+			KVList<KVPair<int, float>>,
+			KVPair<int, float>,
+			int,
+			float>
+			(argv[2]);
+		std::cout << "\nStudent List Letter Grades Included\n==================================\n";
+		std::cout << "Student No :      Grade    Letter\n";
+		listOfGrade.display(std::cout, [](float grade) -> std::string
+		{
+			if (grade >= 90 && grade <= 100) return "A+";
+			else if (grade >= 80 && grade <= 89.9) return "A ";
+			else if (grade >= 75 && grade <= 79.9) return "B+";
+			else if (grade >= 70 && grade <= 74.9) return "B ";
+			else if (grade >= 65 && grade <= 69.9) return "C+";
+			else if (grade >= 60 && grade <= 64.9) return "C ";
+			else if (grade >= 55 && grade <= 59.9) return "D+";
+			else if (grade >= 50 && grade <= 54.9) return "D ";
+			else if (grade >= 0 && grade <= 49.9) return "F ";
+			else {
+				throw "without of grade";
+			}
+		});
+	}
+	catch (const std::exception& error)
+	{
+		exit(2);
+	}
