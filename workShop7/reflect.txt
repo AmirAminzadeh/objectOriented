@@ -1,0 +1,28 @@
+The reason for using the vector container rather than any other available in the 
+STL.
+
+when we use the vector container, the vector container is the same as dynamic 
+array that this container able to resize itself automatically. We can use the
+vector container when an element is inserted or an element is deleted.
+
+==================================================================================
+List the STL template functions that you used in your solution.
+
+std::getline, find_first_of, std::stof, push_back, std::accumulate, std::for_each,
+std::vector<T>, std::sort, std::size, 
+
+
+
+==================================================================================
+Identify where you used lambda expressions.
+
+std::for_each(yData.begin(), yData.end(), 
+[&](T interValue) { position1 += (pow((interValue - yMean), 2)); });
+
+
+std::for_each(xData.begin(), xData.end(), 
+[&](T interValueue) { position3 += (interValueue * interValueue); });
+
+
+
+==================================================================================
