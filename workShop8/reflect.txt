@@ -1,0 +1,43 @@
+The advantage that smart pointer syntax provides.
+
+The advantage of smart pointer is the prevention of memory leak. In this case, 
+smart pointers will also free the memory if an exception occurs.
+
+List<Product> mergeSmart(const List<Description>& desc, const List<Price>& price) {
+		List<Product> priceList;
+		// TODO: Add your code here to build a list of products
+		//         using smart pointers
+
+
+
+		//Name: Amir Aminzadeh
+		//Student number: 126554187
+		//Student email: aaminzadeh2@myseneca.ca
+		//Section: SEE
+		for (size_t i = 0; i < desc.size(); ++i) {
+
+			for (size_t x = 0; x < price.size(); ++x) {
+
+				if (desc[i].code == price[x].code) {
+					std::unique_ptr<Product> p{ 
+					new Product(desc[i].desc, price[x].price)
+				};
+					p->validate();
+					priceList += p;
+				}
+			}
+		}
+
+		return priceList;
+	}
+
+=================================================================================
+List the difference between raw and smart pointer syntax in your solution.
+
+In raw pointer, you should use from delete for deleting the occupied memory and 
+When using a raw pointer, you need to have a delete for every possible exit 
+point, and still an exception will lead to a memory leak however when using the
+smart pointer, you prevent the memory leak and smart pointers will also free the 
+memory if an exception occurs.
+
+=================================================================================
