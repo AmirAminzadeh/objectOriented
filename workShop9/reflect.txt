@@ -1,0 +1,29 @@
+Binary file operations
+
+Binary files are useful for reading, writing,and transferring large amounts of 
+data. There is no conversion, insertion, extraction, or field operators required 
+for reading and writing. Binary files are read using the std::istream class
+  std::istream& theFile(fileName, std::ios::in|std::ios::binary);
+  filePointerName.read(characterArray, 1);
+
+The istream class is the in and out hierarchy that includes methods to read binary 
+files for writing binary files, the std::ostream class is used
+  std::ofstream theFile(fileName, std::ios::out|std::ios::binary|std::ios::trunc);
+  filePointerName.write(string, sizeof string - 1);
+
+==================================================================================
+Binding a function to its arguments
+
+std::bind. Returns a function object based on fn , but with its arguments bound to
+args . Each argument may either be bound to a value or be a placeholder: 
+If bound to a value, calling the returned function object will always use that 
+value as argument.
+
+==================================================================================
+Multi-threading
+
+A multithreaded program contains two or more parts that can run concurrently. 
+Each part of such a program is called a thread, and each thread defines a separate
+path of execution.
+
+==================================================================================
